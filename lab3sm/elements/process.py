@@ -98,11 +98,14 @@ class Process(e.Element):
         }
 
     def calculate_mean(self, t_curr):
-        return self.mean_queue/t_curr, self.quantity/t_curr
+        return self.mean_queue/t_curr, self.mean_load/t_curr
 
     def calculate(self, delta):
         # для обчислення середнього значення довжини черги
-        self.mean_queue = self.mean_queue + self.queue * delta
+        self.mean_queue += self.queue * delta
+
+        for i in range(self.channel):
+            self.mean_load += self.states[i] * delta
 
         # максимальне спостережуване значення черги
         if self.queue > self.max_observed_queue:

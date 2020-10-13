@@ -109,7 +109,7 @@ class Model:
                 if p.quantity == 0:
                     failure_probability = 0
                 else:
-                    failure_probability = p.failure / float(p.quantity)
+                    failure_probability = p.failure / (p.failure + float(p.quantity))
 
                 max_queue = p.max_observed_queue
                 mean_queue = process_stat['MeanQueue' + str(process_id)]

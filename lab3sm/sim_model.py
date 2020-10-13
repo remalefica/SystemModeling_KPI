@@ -6,16 +6,16 @@ from elements.dispose import Dispose
 # region Task 5
 c = Create(2.0)
 
-p1 = Process(0.2)
+p1 = Process(2.0, 3)
 p1.max_queue = 5
 
-p2 = Process(20)
+p2 = Process(1.0)
 p2.max_queue = 5
 
-p3 = Process(2.0)
+p3 = Process(1.0)
 p3.max_queue = 5
 
-p4 = Process(2.0)
+p4 = Process(1.0)
 p4.max_queue = 5
 
 d1, d2 = Dispose('DISPOSE1'), Dispose('DISPOSE2')
